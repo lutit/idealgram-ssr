@@ -34,6 +34,10 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
             <button class="ig-nav__pill ig-nav__pill--icon" id="ig-theme-toggle" type="button" aria-label="Toggle theme">
                 <span class="material-icons-round ig-nav__icon" aria-hidden="true">dark_mode</span>
             </button>
+            <a href="https://github.com/lutit/idealgram-ssr" class="ig-nav__pill ig-nav__pill--ghost" target="_blank" rel="noreferrer">
+                <span class="material-icons-round ig-nav__icon" aria-hidden="true">code</span>
+                <span class="ig-nav__pill-label">Source code</span>
+            </a>
             <div class="ig-nav__locale" aria-label="Language">
                 <?php foreach (['en' => 'EN', 'ru' => 'RU', 'uz' => 'UZ'] as $code => $label): ?>
                     <?php

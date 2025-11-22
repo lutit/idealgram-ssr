@@ -201,6 +201,18 @@ html[data-theme="light"]::-webkit-scrollbar-thumb {
     border-color: var(--ig-accent);
 }
 
+.ig-nav__pill--ghost {
+    background: transparent;
+    border-color: var(--ig-border-soft);
+    color: var(--ig-muted);
+}
+
+.ig-nav__pill--ghost:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
 .ig-nav__icon {
     font-size: 18px;
 }
