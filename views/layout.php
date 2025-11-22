@@ -57,7 +57,7 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
                 <span class="material-icons-round ig-nav__icon" aria-hidden="true">send</span>
                 <span class="ig-nav__pill-label">@Ideal_Gram</span>
             </a>
-            <a href="https://github.com/lutit/idealgram-ssr" class="ig-nav__pill ig-nav__pill--ghost" target="_blank" rel="noreferrer">
+            <a href="https://github.com/lutit/idealgram" class="ig-nav__pill ig-nav__pill--ghost" target="_blank" rel="noreferrer">
                 <span class="material-icons-round ig-nav__icon" aria-hidden="true">code</span>
                 <span class="ig-nav__pill-label">Source code</span>
             </a>
