@@ -22,7 +22,20 @@ spl_autoload_register(function (string $class): void {
     }
 });
 
+use App\Core\I18n;
 use App\Core\Router;
+
+// Locale detection: query ?lang=, then cookie, fallback to en.
+$requestedLocale = $_GET['lang'] ?? null;
+$cookieLocale = $_COOKIE['ig_lang'] ?? null;
+$locale = $requestedLocale ?: $cookieLocale ?: 'en';
+
+I18n::setLocale($locale);
+
+// Persist normalized locale in cookie for future requests.
+if ($cookieLocale !== I18n::getLocale()) {
+    setcookie('ig_lang', I18n::getLocale(), time() + 365 * 24 * 60 * 60, '/');
+}
 
 $router = new Router(require dirname(__DIR__) . '/config/routes.php');
 
@@ -34,4 +47,3 @@ foreach ($response['headers'] as $name => $value) {
 }
 
 echo $response['body'];
-

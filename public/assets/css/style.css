@@ -118,7 +118,7 @@ img {
 .ig-nav__actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .ig-nav__pill {
@@ -149,6 +149,40 @@ img {
 
 .ig-nav__pill-label {
     white-space: nowrap;
+}
+
+.ig-nav__locale {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ig-lang-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    padding: 4px 6px;
+    border-radius: 999px;
+    border: 1px solid var(--ig-border-soft);
+    font-size: 11px;
+    color: var(--ig-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: background 0.15s ease-out, color 0.15s ease-out,
+        border-color 0.15s ease-out, transform 0.15s ease-out;
+}
+
+.ig-lang-pill:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.ig-lang-pill--active {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #fff;
 }
 
 .ig-main {

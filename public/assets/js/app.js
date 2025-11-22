@@ -3,12 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (cta) {
     cta.addEventListener("click", () => {
       const message =
-        "Shamala Mode в IdealGram — это режим, в котором сообщения " +
-        "могут проходить через UzbekGPT: немного хаоса, но с честным fallback’ом.";
+        "Shamala Mode in IdealGram is a mode where messages can go through UzbekGPT: a bit of controlled chaos with a safe fallback.";
       // Лёгкая, намеренно простая подсказка
       // (можно заменить на кастомный toast позже).
       alert(message);
     });
   }
 });
-
