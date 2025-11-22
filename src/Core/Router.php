@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Core;
 
+use App\Controller\ErrorController;
+
 final class Router
 {
     /**
@@ -31,10 +33,13 @@ final class Router
         $controllerSpec = $this->routes[$method][$path] ?? null;
 
         if ($controllerSpec === null) {
+            $error = new ErrorController();
+            $result = $error->notFound();
+
             return [
-                'status' => 404,
+                'status' => $result['status'],
                 'headers' => ['Content-Type' => 'text/html; charset=utf-8'],
-                'body' => '<h1>404 Not Found</h1>',
+                'body' => $result['body'],
             ];
         }
 
@@ -43,6 +48,14 @@ final class Router
 
         $body = $controller->$action();
 
+        if (is_array($body) && isset($body['status'], $body['body'])) {
+            return [
+                'status' => (int) $body['status'],
+                'headers' => ['Content-Type' => 'text/html; charset=utf-8'],
+                'body' => (string) $body['body'],
+            ];
+        }
+
         return [
             'status' => 200,
             'headers' => ['Content-Type' => 'text/html; charset=utf-8'],
@@ -50,4 +63,3 @@ final class Router
         ];
     }
 }
-

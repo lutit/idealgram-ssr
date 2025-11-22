@@ -554,6 +554,93 @@ img {
     border-bottom-color: #fff;
 }
 
+.ig-error {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.ig-error__card {
+    width: 100%;
+    max-width: 520px;
+    padding: 26px 24px 24px;
+    border-radius: var(--ig-radius-lg);
+    border: 1px solid var(--ig-border-soft);
+    background: linear-gradient(145deg, #11111a, #08080e);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.85);
+}
+
+.ig-error__card--404 {
+    background: radial-gradient(circle at top left, rgba(225, 48, 108, 0.2), transparent 55%),
+        linear-gradient(145deg, #131320, #07070c);
+}
+
+.ig-error__card--403 {
+    background: radial-gradient(circle at top left, rgba(148, 119, 255, 0.22), transparent 55%),
+        linear-gradient(145deg, #151526, #07070d);
+}
+
+.ig-error__card--500 {
+    background: radial-gradient(circle at top left, rgba(245, 158, 11, 0.25), transparent 55%),
+        linear-gradient(145deg, #171520, #08070b);
+}
+
+.ig-error__code-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.ig-error__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(5, 5, 11, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.ig-error__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: rgba(5, 5, 10, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 11px;
+    color: var(--ig-muted);
+}
+
+.ig-error__chip-icon {
+    font-size: 16px;
+}
+
+.ig-error__title {
+    margin: 0 0 6px;
+    font-size: 20px;
+}
+
+.ig-error__subtitle {
+    margin: 0 0 18px;
+    font-size: 13px;
+    color: var(--ig-muted);
+}
+
+.ig-error__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 @media (max-width: 800px) {
     .ig-nav__subtitle {
         display: none;
@@ -598,5 +685,13 @@ img {
     .ig-section__footer {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .ig-error {
+        margin-top: 28px;
+    }
+
+    .ig-error__card {
+        padding: 20px 18px 18px;
     }
 }

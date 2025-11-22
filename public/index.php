@@ -22,8 +22,10 @@ spl_autoload_register(function (string $class): void {
     }
 });
 
+use App\Controller\ErrorController;
 use App\Core\I18n;
 use App\Core\Router;
+use Throwable;
 
 // Locale detection: query ?lang=, then cookie, fallback to en.
 $requestedLocale = $_GET['lang'] ?? null;
@@ -39,7 +41,17 @@ if ($cookieLocale !== I18n::getLocale()) {
 
 $router = new Router(require dirname(__DIR__) . '/config/routes.php');
 
-$response = $router->dispatch($_SERVER['REQUEST_URI'] ?? '/');
+try {
+    $response = $router->dispatch($_SERVER['REQUEST_URI'] ?? '/');
+} catch (Throwable $e) {
+    $error = new ErrorController();
+    $result = $error->serverError();
+    $response = [
+        'status' => $result['status'] ?? 500,
+        'headers' => ['Content-Type' => 'text/html; charset=utf-8'],
+        'body' => $result['body'] ?? '<h1>500 Internal Server Error</h1>',
+    ];
+}
 
 http_response_code($response['status']);
 foreach ($response['headers'] as $name => $value) {

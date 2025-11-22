@@ -43,6 +43,15 @@ return [
         'footer_link' => 'Go to @Ideal_Gram',
 
         'shamala_alert' => 'Shamala Mode in IdealGram is a mode where messages can go through UzbekGPT: a managed bit of chaos with a safe fallback.',
+
+        'error_back_home' => 'Back to home',
+        'error_404_title' => 'Page not found',
+        'error_404_message' => 'Looks like you ended up between dialogs, not inside one.',
+        'error_403_title' => 'Access denied',
+        'error_403_message' => 'This part of IdealGram is not ready for your account yet.',
+        'error_500_title' => 'Something went Shamala',
+        'error_500_message' => 'The client tripped over an internal error. We logged it in our imaginary logs.',
+        'error_500_retry' => 'Try again',
     ],
     'ru' => [
         'site_name' => 'IdealGram',
@@ -83,7 +92,16 @@ return [
         'footer_subtitle' => 'IdealGram остаётся совместимым с Telegram, но добавляет свои шорткаты, визуальную ДНК и чуть‑чуть управляемого хаоса.',
         'footer_link' => 'Перейти в канал @Ideal_Gram',
 
-        'shamala_alert' => 'Shamala Mode в IdealGram - это режим, в котором сообщения проходят через UzbekGPT: немного управляемого хаоса, но с честным fallback’ом.',
+        'shamala_alert' => 'Shamala Mode в IdealGram — это режим, в котором сообщения проходят через UzbekGPT: немного управляемого хаоса, но с честным fallback’ом.',
+
+        'error_back_home' => 'Вернуться на главную',
+        'error_404_title' => 'Страница не найдена',
+        'error_404_message' => 'Кажется, вы попали не в чат, а в пространство между ними.',
+        'error_403_title' => 'Нет доступа',
+        'error_403_message' => 'Эта часть IdealGram пока недоступна для вашего аккаунта.',
+        'error_500_title' => 'Что‑то поехало в Shamala',
+        'error_500_message' => 'Клиент споткнулся о внутреннюю ошибку. Представим, что мы уже посмотрели логи.',
+        'error_500_retry' => 'Попробовать ещё раз',
     ],
     'uz' => [
         'site_name' => 'IdealGram',
@@ -124,7 +142,15 @@ return [
         'footer_subtitle' => 'IdealGram Telegram bilan mos, lekin o‘z shortcut’lari, vizual DNKsi va boshqariladigan xaosi bor.',
         'footer_link' => '@Ideal_Gram kanaliga o‘tish',
 
-        'shamala_alert' => 'IdealGram’dagi Shamala Mode - xabarlar UzbekGPT orqali o‘tadigan rejim: boshqariladigan xaos va xavfsiz fallback.',
+        'shamala_alert' => 'IdealGram’dagi Shamala Mode — xabarlar UzbekGPT orqali o‘tadigan rejim: boshqariladigan xaos va xavfsiz fallback.',
+
+        'error_back_home' => 'Bosh sahifaga qaytish',
+        'error_404_title' => 'Sahifa topilmadi',
+        'error_404_message' => 'Siz chat ichiga emas, chatlar orasidagi bo‘shliqqa tushib qolganga o‘xshaysiz.',
+        'error_403_title' => 'Ruxsat yo‘q',
+        'error_403_message' => 'IdealGram’ning bu qismi hozircha sizning akkaunt uchun yopiq.',
+        'error_500_title' => 'Nimadir Shamala tomonga ketdi',
+        'error_500_message' => 'Klient ichki xatoga uchradi. Go‘yoki loglarni allaqachon ko‘rib chiqdik.',
+        'error_500_retry' => 'Qayta urinib ko‘rish',
     ],
 ];
-
