@@ -1,12 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cta = document.getElementById("ig-cta");
+  const modal = document.getElementById("ig-modal");
+
+  if (!modal) return;
+
+  const openModal = () => {
+    modal.classList.add("ig-modal--open");
+    document.body.classList.add("ig-modal-open");
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("ig-modal--open");
+    document.body.classList.remove("ig-modal-open");
+  };
+
   if (cta) {
-    cta.addEventListener("click", () => {
-      const message =
-        "Shamala Mode in IdealGram is a mode where messages can go through UzbekGPT: a bit of controlled chaos with a safe fallback.";
-      // Лёгкая, намеренно простая подсказка
-      // (можно заменить на кастомный toast позже).
-      alert(message);
+    cta.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
     });
   }
+
+  modal.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+
+    if (
+      target.hasAttribute("data-ig-modal-close") ||
+      target.closest("[data-ig-modal-close]")
+    ) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
 });

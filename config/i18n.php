@@ -44,6 +44,13 @@ return [
 
         'shamala_alert' => 'Shamala Mode in IdealGram is a mode where messages can go through UzbekGPT: a managed bit of chaos with a safe fallback.',
 
+        'shamala_modal_title' => 'What is Shamala Mode?',
+        'shamala_modal_subtitle' => 'An opinionated AI layer on top of your usual Telegram flow.',
+        'shamala_modal_point_1' => 'Outgoing messages can be routed through UzbekGPT for remixing, translation or controlled chaos.',
+        'shamala_modal_point_2' => 'Original text is preserved so you can always fall back or compare.',
+        'shamala_modal_point_3' => 'You stay in control: Shamala Mode is a toggle, not a trap.',
+        'shamala_modal_close' => 'Close',
+
         'error_back_home' => 'Back to home',
         'error_404_title' => 'Page not found',
         'error_404_message' => 'Looks like you ended up between dialogs, not inside one.',
@@ -94,6 +101,13 @@ return [
 
         'shamala_alert' => 'Shamala Mode в IdealGram — это режим, в котором сообщения проходят через UzbekGPT: немного управляемого хаоса, но с честным fallback’ом.',
 
+        'shamala_modal_title' => 'Что такое Shamala Mode?',
+        'shamala_modal_subtitle' => 'Опинионейтед‑слой с AI поверх привычного Telegram‑флоу.',
+        'shamala_modal_point_1' => 'Исходящие сообщения могут уходить в UzbekGPT: ремикс, перевод, контролируемый абсурд.',
+        'shamala_modal_point_2' => 'Оригинальный текст сохраняется, чтобы всегда было к чему вернуться.',
+        'shamala_modal_point_3' => 'Вы управляете режимом сами: Shamala Mode — это тумблер, а не ловушка.',
+        'shamala_modal_close' => 'Закрыть',
+
         'error_back_home' => 'Вернуться на главную',
         'error_404_title' => 'Страница не найдена',
         'error_404_message' => 'Кажется, вы попали не в чат, а в пространство между ними.',
@@ -143,6 +157,13 @@ return [
         'footer_link' => '@Ideal_Gram kanaliga o‘tish',
 
         'shamala_alert' => 'IdealGram’dagi Shamala Mode — xabarlar UzbekGPT orqali o‘tadigan rejim: boshqariladigan xaos va xavfsiz fallback.',
+
+        'shamala_modal_title' => 'Shamala Mode nima?',
+        'shamala_modal_subtitle' => 'Oddiy Telegram oqimiga AI‑qatlam qo‘shadigan opionated rejim.',
+        'shamala_modal_point_1' => 'Chiquvchi xabarlar UzbekGPT orqali o‘tib, qayta talqin yoki tarjima qilinishi mumkin.',
+        'shamala_modal_point_2' => 'Asl matn saqlanadi, istalgan payt solishtirib yoki qaytib kelsa bo‘ladi.',
+        'shamala_modal_point_3' => 'Rejim sizning qo‘lingizda: Shamala Mode — tugma, tuzoq emas.',
+        'shamala_modal_close' => 'Yopish',
 
         'error_back_home' => 'Bosh sahifaga qaytish',
         'error_404_title' => 'Sahifa topilmadi',

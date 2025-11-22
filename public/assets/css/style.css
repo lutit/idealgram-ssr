@@ -646,7 +646,129 @@ img {
     gap: 10px;
 }
 
+.ig-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 40;
+}
+
+.ig-modal--open {
+    display: flex;
+}
+
+.ig-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: radial-gradient(circle at top, rgba(225, 48, 108, 0.18), transparent 55%),
+        rgba(2, 2, 5, 0.88);
+    cursor: pointer;
+}
+
+.ig-modal__dialog {
+    position: relative;
+    max-width: 520px;
+    width: 100%;
+    background: linear-gradient(145deg, #15151f, #06060b);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.9);
+    padding: 18px 18px 16px;
+}
+
+.ig-modal__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.ig-modal__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top left, var(--ig-accent), #b01a5a);
+    box-shadow: 0 0 0 6px var(--ig-accent-soft);
+}
+
+.ig-modal__titles {
+    flex: 1;
+    min-width: 0;
+}
+
+.ig-modal__title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.ig-modal__subtitle {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: var(--ig-muted);
+}
+
+.ig-modal__close {
+    border: none;
+    background: transparent;
+    color: var(--ig-muted);
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 4px;
+    display: inline-flex;
+}
+
+.ig-modal__close:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
+.ig-modal__body {
+    margin-top: 8px;
+}
+
+.ig-modal__lead {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.ig-modal__list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--ig-muted);
+}
+
+.ig-modal__list li + li {
+    margin-top: 4px;
+}
+
+.ig-modal__footer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ig-modal__primary {
+    padding-inline: 16px;
+}
+
+body.ig-modal-open {
+    overflow: hidden;
+}
+
 @media (max-width: 800px) {
+    .ig-header {
+        padding: 1rem 0;
+    }
     .ig-container {
         padding: 0 16px;
     }
@@ -797,6 +919,19 @@ img {
     .ig-error__actions .ig-button {
         width: 100%;
         justify-content: center;
+    }
+
+    .ig-modal {
+        padding: 10px;
+    }
+
+    .ig-modal__dialog {
+        padding: 14px 14px 12px;
+        border-radius: 20px;
+    }
+
+    .ig-modal__title {
+        font-size: 16px;
     }
 }
 

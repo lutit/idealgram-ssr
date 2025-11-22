@@ -117,3 +117,35 @@ use App\Core\I18n;
         </div>
     </div>
 </section>
+
+<section class="ig-modal" id="ig-modal" aria-hidden="true">
+    <button class="ig-modal__backdrop" type="button" data-ig-modal-close aria-label="Close Shamala details"></button>
+    <div class="ig-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="ig-modal-title">
+        <header class="ig-modal__header">
+            <div class="ig-modal__icon">
+                <span class="material-icons-round" aria-hidden="true">psychology</span>
+            </div>
+            <div class="ig-modal__titles">
+                <h2 class="ig-modal__title" id="ig-modal-title">
+                    <?= htmlspecialchars(I18n::t('shamala_modal_title'), ENT_QUOTES, 'UTF-8') ?>
+                </h2>
+                <p class="ig-modal__subtitle">
+                    <?= htmlspecialchars(I18n::t('shamala_modal_subtitle'), ENT_QUOTES, 'UTF-8') ?>
+                </p>
+            </div>
+            <button class="ig-modal__close" type="button" data-ig-modal-close aria-label="<?= htmlspecialchars(I18n::t('shamala_modal_close'), ENT_QUOTES, 'UTF-8') ?>">
+                <span class="material-icons-round" aria-hidden="true">close</span>
+            </button>
+        </header>
+        <div class="ig-modal__body">
+            <p class="ig-modal__lead">
+                <?= htmlspecialchars(I18n::t('shamala_alert'), ENT_QUOTES, 'UTF-8') ?>
+            </p>
+            <ul class="ig-modal__list">
+                <li><?= htmlspecialchars(I18n::t('shamala_modal_point_1'), ENT_QUOTES, 'UTF-8') ?></li>
+                <li><?= htmlspecialchars(I18n::t('shamala_modal_point_2'), ENT_QUOTES, 'UTF-8') ?></li>
+                <li><?= htmlspecialchars(I18n::t('shamala_modal_point_3'), ENT_QUOTES, 'UTF-8') ?></li>
+            </ul>
+        </div>
+    </div>
+</section>
