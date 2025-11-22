@@ -36,6 +36,11 @@ final class Database
                 ]
             );
         } catch (PDOException $e) {
+            Logger::error('Database connection failed', [
+                'error' => $e->getMessage(),
+                'code' => $e->getCode(),
+            ]);
+
             throw new \RuntimeException('Database connection failed', 0, $e);
         }
 
@@ -44,4 +49,3 @@ final class Database
         return $pdo;
     }
 }
-

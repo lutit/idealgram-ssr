@@ -24,6 +24,7 @@ spl_autoload_register(function (string $class): void {
 
 use App\Controller\ErrorController;
 use App\Core\I18n;
+use App\Core\Logger;
 use App\Core\Router;
 use Throwable;
 
@@ -33,6 +34,10 @@ $cookieLocale = $_COOKIE['ig_lang'] ?? null;
 $locale = $requestedLocale ?: $cookieLocale ?: 'en';
 
 I18n::setLocale($locale);
+
+Logger::info('Request received', [
+    'locale' => $locale,
+]);
 
 // Persist normalized locale in cookie for future requests.
 if ($cookieLocale !== I18n::getLocale()) {
@@ -44,6 +49,13 @@ $router = new Router(require dirname(__DIR__) . '/config/routes.php');
 try {
     $response = $router->dispatch($_SERVER['REQUEST_URI'] ?? '/');
 } catch (Throwable $e) {
+    Logger::error('Unhandled exception during request', [
+        'uri' => $_SERVER['REQUEST_URI'] ?? '',
+        'message' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'trace' => $e->getTraceAsString(),
+    ]);
+
     $error = new ErrorController();
     $result = $error->serverError();
     $response = [
