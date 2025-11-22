@@ -110,10 +110,16 @@ use App\Core\I18n;
             <p class="ig-section__subtitle"><?= htmlspecialchars(I18n::t('footer_subtitle'), ENT_QUOTES, 'UTF-8') ?></p>
         </div>
         <div class="ig-section__footer-cta">
-            <a href="https://t.me/Ideal_Gram" class="ig-link-underline" target="_blank" rel="noreferrer">
-                <?= htmlspecialchars(I18n::t('footer_link'), ENT_QUOTES, 'UTF-8') ?>
-                <span class="material-icons-round ig-link-underline__icon" aria-hidden="true">open_in_new</span>
-            </a>
+            <div class="ig-footer-links">
+                <a href="/privacy" class="ig-link-underline">
+                    <?= htmlspecialchars(I18n::t('privacy_title'), ENT_QUOTES, 'UTF-8') ?>
+                    <span class="material-icons-round ig-link-underline__icon" aria-hidden="true">shield</span>
+                </a>
+                <a href="https://t.me/Ideal_Gram" class="ig-link-underline" target="_blank" rel="noreferrer">
+                    <?= htmlspecialchars(I18n::t('footer_link'), ENT_QUOTES, 'UTF-8') ?>
+                    <span class="material-icons-round ig-link-underline__icon" aria-hidden="true">open_in_new</span>
+                </a>
+            </div>
         </div>
     </div>
 </section>
