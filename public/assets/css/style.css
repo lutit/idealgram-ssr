@@ -52,6 +52,9 @@ img {
 .material-icons-round {
     font-size: 18px;
     vertical-align: middle;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .ig-container {
@@ -795,4 +798,10 @@ img {
         width: 100%;
         justify-content: center;
     }
+}
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }

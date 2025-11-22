@@ -6,7 +6,7 @@ use App\Core\I18n;
 <section class="ig-hero" id="top">
     <div class="ig-hero__grid">
         <div class="ig-hero__primary">
-            <div class="ig-pill ig-pill--accent">
+            <div class="ig-pill ig-pill--accent no-select">
                 <span class="material-icons-round ig-pill__icon" aria-hidden="true">auto_awesome</span>
                 <span><?= htmlspecialchars(I18n::t('hero_pill'), ENT_QUOTES, 'UTF-8') ?></span>
             </div>
@@ -16,7 +16,7 @@ use App\Core\I18n;
             <p class="ig-hero__subtitle">
                 <?= htmlspecialchars(I18n::t('hero_description'), ENT_QUOTES, 'UTF-8') ?>
             </p>
-            <div class="ig-hero__actions">
+            <div class="ig-hero__actions no-select">
                 <a href="https://t.me/Ideal_Gram" class="ig-button ig-button--primary" target="_blank" rel="noreferrer">
                     <span class="material-icons-round ig-button__icon" aria-hidden="true">arrow_outward</span>
                     <span><?= htmlspecialchars(I18n::t('hero_cta_primary'), ENT_QUOTES, 'UTF-8') ?></span>
@@ -26,7 +26,7 @@ use App\Core\I18n;
                     <span><?= htmlspecialchars(I18n::t('hero_cta_secondary'), ENT_QUOTES, 'UTF-8') ?></span>
                 </button>
             </div>
-            <ul class="ig-hero__highlights">
+            <ul class="ig-hero__highlights no-select">
                 <li><?= htmlspecialchars(I18n::t('hero_highlight_1'), ENT_QUOTES, 'UTF-8') ?></li>
                 <li><?= htmlspecialchars(I18n::t('hero_highlight_2'), ENT_QUOTES, 'UTF-8') ?></li>
                 <li><?= htmlspecialchars(I18n::t('hero_highlight_3'), ENT_QUOTES, 'UTF-8') ?></li>
@@ -34,7 +34,7 @@ use App\Core\I18n;
         </div>
         <div class="ig-hero__visual" aria-hidden="true">
             <div class="ig-device">
-                <div class="ig-device__status">
+                <div class="ig-device__status no-select">
                     <span class="ig-badge ig-badge--accent">
                         <span class="material-icons-round ig-badge__icon">psychology</span>
                         Shamala mode
@@ -44,7 +44,7 @@ use App\Core\I18n;
                         UzbekGPT inside
                     </span>
                 </div>
-                <div class="ig-device__screen">
+                <div class="ig-device__screen no-select">
                     <div class="ig-device__topbar">
                         <span class="ig-device__title"><?= htmlspecialchars(I18n::t('site_name'), ENT_QUOTES, 'UTF-8') ?></span>
                         <span class="ig-device__dot"></span>

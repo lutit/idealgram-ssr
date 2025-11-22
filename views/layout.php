@@ -18,7 +18,7 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-<header class="ig-header">
+<header class="ig-header no-select">
     <div class="ig-container ig-nav">
         <a href="/" class="ig-nav__brand">
             <span class="ig-logo-mark-wrap">
