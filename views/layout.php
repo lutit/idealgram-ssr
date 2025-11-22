@@ -20,24 +20,28 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 </head>
 <body>
 <header class="ig-header no-select">
-    <div class="ig-container ig-nav">
-        <a href="/" class="ig-nav__brand">
-            <span class="ig-logo-mark-wrap">
-                <img src="/assets/images/logo_idealgram.png" alt="IdealGram logo" class="ig-logo-mark">
-            </span>
-            <span class="ig-nav__text">
-                <span class="ig-nav__title"><?= htmlspecialchars(I18n::t('site_name'), ENT_QUOTES, 'UTF-8') ?></span>
-                <span class="ig-nav__subtitle"><?= htmlspecialchars(I18n::t('nav_tagline'), ENT_QUOTES, 'UTF-8') ?></span>
-            </span>
-        </a>
-        <div class="ig-nav__actions">
+    <div class="ig-container ig-nav" id="ig-nav">
+        <div class="ig-nav__primary">
+            <a href="/" class="ig-nav__brand">
+                <span class="ig-logo-mark-wrap">
+                    <img src="/assets/images/logo_idealgram.png" alt="IdealGram logo" class="ig-logo-mark">
+                </span>
+                <span class="ig-nav__text">
+                    <span class="ig-nav__title"><?= htmlspecialchars(I18n::t('site_name'), ENT_QUOTES, 'UTF-8') ?></span>
+                    <span class="ig-nav__subtitle"><?= htmlspecialchars(I18n::t('nav_tagline'), ENT_QUOTES, 'UTF-8') ?></span>
+                </span>
+            </a>
+            <button class="ig-nav__burger" id="ig-nav-burger" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="ig-nav-menu">
+                <span class="material-icons-round" aria-hidden="true">menu</span>
+            </button>
+        </div>
+        <div class="ig-nav__actions" id="ig-nav-menu">
+            <button class="ig-nav__pill ig-nav__pill--icon ig-nav__close" id="ig-nav-close" type="button" aria-label="Close navigation">
+                <span class="material-icons-round ig-nav__icon" aria-hidden="true">close</span>
+            </button>
             <button class="ig-nav__pill ig-nav__pill--icon" id="ig-theme-toggle" type="button" aria-label="Toggle theme">
                 <span class="material-icons-round ig-nav__icon" aria-hidden="true">dark_mode</span>
             </button>
-            <a href="https://github.com/lutit/idealgram-ssr" class="ig-nav__pill ig-nav__pill--ghost" target="_blank" rel="noreferrer">
-                <span class="material-icons-round ig-nav__icon" aria-hidden="true">code</span>
-                <span class="ig-nav__pill-label">Source code</span>
-            </a>
             <div class="ig-nav__locale" aria-label="Language">
                 <?php foreach (['en' => 'EN', 'ru' => 'RU', 'uz' => 'UZ'] as $code => $label): ?>
                     <?php
@@ -53,8 +57,13 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
                 <span class="material-icons-round ig-nav__icon" aria-hidden="true">send</span>
                 <span class="ig-nav__pill-label">@Ideal_Gram</span>
             </a>
+            <a href="https://github.com/lutit/idealgram-ssr" class="ig-nav__pill ig-nav__pill--ghost" target="_blank" rel="noreferrer">
+                <span class="material-icons-round ig-nav__icon" aria-hidden="true">code</span>
+                <span class="ig-nav__pill-label">Source code</span>
+            </a>
         </div>
     </div>
+    <button class="ig-nav__backdrop" type="button" id="ig-nav-backdrop" aria-hidden="true"></button>
 </header>
 <main class="ig-main ig-container">
     <?= $content ?>

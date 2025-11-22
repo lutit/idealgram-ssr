@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("ig-modal");
   const themeToggle = document.getElementById("ig-theme-toggle");
   const navCta = document.getElementById("ig-nav-cta");
+  const navRoot = document.getElementById("ig-nav");
+  const navBurger = document.getElementById("ig-nav-burger");
+  const navMenu = document.getElementById("ig-nav-menu");
+  const navBackdrop = document.getElementById("ig-nav-backdrop");
+  const navClose = document.getElementById("ig-nav-close");
   const langLinks = document.querySelectorAll("[data-ig-lang]");
   const root = document.documentElement;
   const currentLang = document.documentElement.lang || "en";
@@ -118,6 +123,79 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  /* Mobile nav menu */
+  const closeNavMenu = () => {
+    if (!navRoot) return;
+    navRoot.classList.remove("ig-nav--menu-open");
+    document.body.classList.remove("ig-nav-menu-open");
+    if (navBurger) {
+      navBurger.setAttribute("aria-expanded", "false");
+    }
+  };
+
+  const openNavMenu = () => {
+    if (!navRoot) return;
+    navRoot.classList.add("ig-nav--menu-open");
+    document.body.classList.add("ig-nav-menu-open");
+    if (navBurger) {
+      navBurger.setAttribute("aria-expanded", "true");
+    }
+    track("ig_nav_menu_open", {
+      page_path: window.location.pathname,
+      lang: currentLang,
+      theme: root.getAttribute("data-theme") || "dark",
+    });
+  };
+
+  if (navBurger && navMenu) {
+    navBurger.addEventListener("click", () => {
+      const isOpen = navRoot?.classList.contains("ig-nav--menu-open");
+      if (isOpen) {
+        closeNavMenu();
+      } else {
+        openNavMenu();
+      }
+    });
+  }
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener("click", () => {
+      closeNavMenu();
+    });
+  }
+
+  if (navClose) {
+    navClose.addEventListener("click", () => {
+      closeNavMenu();
+    });
+  }
+
+  if (navMenu) {
+    navMenu.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      const clickable = target.closest("a, button");
+      if (!clickable) return;
+      const id = clickable.id;
+      if (id === "ig-theme-toggle" || id === "ig-nav-close" || id === "ig-nav-burger") {
+        return;
+      }
+      closeNavMenu();
+    });
+  }
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720) {
+      closeNavMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeNavMenu();
+    }
+  });
 
   langLinks.forEach((link) => {
     const code = link.getAttribute("data-ig-lang") || "";
