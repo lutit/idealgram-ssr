@@ -31,6 +31,9 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
             </span>
         </a>
         <div class="ig-nav__actions">
+            <button class="ig-nav__pill ig-nav__pill--icon" id="ig-theme-toggle" type="button" aria-label="Toggle theme">
+                <span class="material-icons-round ig-nav__icon" aria-hidden="true">dark_mode</span>
+            </button>
             <div class="ig-nav__locale" aria-label="Language">
                 <?php foreach (['en' => 'EN', 'ru' => 'RU', 'uz' => 'UZ'] as $code => $label): ?>
                     <?php

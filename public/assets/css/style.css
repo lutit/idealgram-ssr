@@ -13,6 +13,24 @@
     --ig-gap: 18px;
     --ig-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
+    --ig-body-bg: radial-gradient(circle at top left, #26263a 0, transparent 55%),
+        radial-gradient(circle at bottom right, #1a1a24 0, transparent 55%),
+        linear-gradient(180deg, #050507, #050505);
+}
+
+html[data-theme="light"] {
+    --ig-bg: #f7f7fb;
+    --ig-surface: #ffffff;
+    --ig-surface-soft: #f3f3ff;
+    --ig-border: #d8d8e8;
+    --ig-border-soft: rgba(15, 15, 25, 0.08);
+    --ig-text: #111117;
+    --ig-muted: #5c5c6b;
+    --ig-accent: #e1306c;
+    --ig-accent-soft: rgba(225, 48, 108, 0.16);
+    --ig-body-bg: radial-gradient(circle at top left, #ffffff 0, transparent 55%),
+        radial-gradient(circle at bottom right, #f1f1ff 0, transparent 55%),
+        linear-gradient(180deg, #ffffff, #f5f5ff);
 }
 
 *,
@@ -39,10 +57,7 @@ body {
 
 body {
     font-family: var(--ig-font-sans);
-    background:
-        radial-gradient(circle at top left, #26263a 0, transparent 55%),
-        radial-gradient(circle at bottom right, #1a1a24 0, transparent 55%),
-        linear-gradient(180deg, #050507, #050505);
+    background: var(--ig-body-bg);
     color: var(--ig-text);
     -webkit-font-smoothing: antialiased;
     font-size: 15px;
@@ -78,9 +93,18 @@ html::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #ff4f8b, #c62363);
 }
 
+html[data-theme="light"]::-webkit-scrollbar-track {
+    background: radial-gradient(circle at top, #f1f1ff, #ffffff);
+}
+
+html[data-theme="light"]::-webkit-scrollbar-thumb {
+    box-shadow: 0 0 0 2px #f5f5ff;
+}
+
 .material-icons-round {
     font-size: 18px;
     vertical-align: middle;
+    color: currentColor;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -185,6 +209,10 @@ html::-webkit-scrollbar-thumb:hover {
     white-space: nowrap;
 }
 
+.ig-nav__pill--icon {
+    padding-inline: 8px;
+}
+
 .ig-nav__locale {
     display: inline-flex;
     align-items: center;
@@ -273,8 +301,8 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 .ig-pill--accent {
-    background: rgba(225, 48, 108, 0.14);
-    border-color: rgba(225, 48, 108, 0.65);
+    background: rgba(225, 48, 108, 0.18);
+    border-color: var(--ig-accent);
     color: #fff;
 }
 
@@ -552,6 +580,131 @@ html::-webkit-scrollbar-thumb:hover {
     margin: 8px 0 0;
     font-size: 12px;
     color: var(--ig-muted);
+}
+
+/* Light theme component tweaks */
+html[data-theme="light"] .ig-header {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom-color: rgba(15, 15, 25, 0.06);
+    box-shadow: 0 1px 0 rgba(15, 15, 25, 0.05);
+}
+
+html[data-theme="light"] .ig-nav__pill {
+    background: radial-gradient(circle at top left, var(--ig-accent), #b01a5a);
+    border-color: var(--ig-accent);
+    color: #ffffff;
+}
+
+html[data-theme="light"] .ig-nav__pill--icon {
+    background: #ffffff;
+    color: var(--ig-accent);
+    box-shadow: 0 0 0 3px rgba(225, 48, 108, 0.12);
+}
+
+html[data-theme="light"] .ig-lang-pill--active {
+    background: var(--ig-accent);
+    border-color: var(--ig-accent);
+    color: #ffffff;
+}
+
+html[data-theme="light"] .ig-lang-pill:hover {
+    border-color: var(--ig-accent);
+    color: var(--ig-accent);
+    background: rgba(225, 48, 108, 0.06);
+}
+
+html[data-theme="light"] .ig-nav__pill--icon:hover {
+    background: #ffe8f0;
+    box-shadow: 0 0 0 4px rgba(225, 48, 108, 0.22);
+}
+
+html[data-theme="light"] .ig-hero {
+    background: linear-gradient(135deg, #ffffff, #f3f3ff);
+    border-color: var(--ig-border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .ig-section {
+    background: var(--ig-surface-soft);
+    border-color: rgba(15, 15, 25, 0.08);
+}
+
+html[data-theme="light"] .ig-section--subtle {
+    background: #f8f8ff;
+    border-style: solid;
+}
+
+html[data-theme="light"] .ig-device {
+    background: #ffffff;
+    border-color: rgba(15, 15, 25, 0.08);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+html[data-theme="light"] .ig-error__card {
+    background: #ffffff;
+    border-color: rgba(15, 15, 25, 0.08);
+}
+
+html[data-theme="light"] .ig-modal__dialog {
+    background: #ffffff;
+    border-color: rgba(15, 15, 25, 0.08);
+}
+
+html[data-theme="light"] .ig-legal__block {
+    background: #ffffff;
+    border-color: rgba(15, 15, 25, 0.08);
+}
+
+html[data-theme="light"] .ig-button--ghost {
+    background: #f5f5ff;
+    border-color: rgba(15, 15, 25, 0.08);
+    color: var(--ig-muted);
+}
+
+html[data-theme="light"] .ig-button--ghost:hover {
+    background: #ececff;
+    border-color: rgba(15, 15, 25, 0.16);
+    color: #111117;
+}
+
+html[data-theme="light"] .ig-pill--accent {
+    background: rgba(225, 48, 108, 0.08);
+    color: #111117;
+}
+
+html[data-theme="light"] .ig-hero__highlights li {
+    background: #f5f5ff;
+    border-color: rgba(15, 15, 25, 0.08);
+}
+
+html[data-theme="light"] .ig-badge {
+    background: #f5f5ff;
+    border-color: rgba(15, 15, 25, 0.08);
+}
+
+html[data-theme="light"] .ig-badge--accent {
+    background: rgba(225, 48, 108, 0.12);
+    border-color: rgba(225, 48, 108, 0.7);
+    color: #111117;
+}
+
+html[data-theme="light"] .ig-device__screen {
+    background: #fafaff;
+    border-color: rgba(15, 15, 25, 0.08);
+}
+
+html[data-theme="light"] .ig-device__chat--calm {
+    background: #f1f1ff;
+}
+
+html[data-theme="light"] .ig-feature {
+    background: #ffffff;
+    border-color: rgba(15, 15, 25, 0.08);
+}
+
+html[data-theme="light"] .ig-link-underline:hover {
+    color: #111117;
+    border-bottom-color: currentColor;
 }
 
 .ig-section__header {
