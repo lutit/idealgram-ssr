@@ -49,9 +49,12 @@ final class Router
         $body = $controller->$action();
 
         if (is_array($body) && isset($body['status'], $body['body'])) {
+            /** @var array<string,string> $headers */
+            $headers = $body['headers'] ?? ['Content-Type' => 'text/html; charset=utf-8'];
+
             return [
                 'status' => (int) $body['status'],
-                'headers' => ['Content-Type' => 'text/html; charset=utf-8'],
+                'headers' => $headers,
                 'body' => (string) $body['body'],
             ];
         }
