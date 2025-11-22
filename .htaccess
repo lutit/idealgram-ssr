@@ -1,0 +1,20 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Block access to internal PHP sources and config if the docroot is the project root
+RewriteRule ^(config|src|views|var)/ - [F,L]
+
+# If the request is not already under /public and is not a real file/dir,
+# forward it to the public front controller directory.
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ public%{REQUEST_URI} [L]
+</IfModule>
+
+# Protect dotfiles like .env, .gitignore, etc.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
