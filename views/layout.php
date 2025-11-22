@@ -40,12 +40,12 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
                     $href = htmlspecialchars($path . '?lang=' . $code, ENT_QUOTES, 'UTF-8');
                     $isActive = $code === $currentLang;
                     ?>
-                    <a href="<?= $href ?>" class="ig-lang-pill<?= $isActive ? ' ig-lang-pill--active' : '' ?>">
+                    <a href="<?= $href ?>" class="ig-lang-pill<?= $isActive ? ' ig-lang-pill--active' : '' ?>" data-ig-lang="<?= htmlspecialchars($code, ENT_QUOTES, 'UTF-8') ?>">
                         <?= $label ?>
                     </a>
                 <?php endforeach; ?>
             </div>
-            <a href="https://t.me/Ideal_Gram" class="ig-nav__pill" target="_blank" rel="noreferrer">
+            <a href="https://t.me/Ideal_Gram" class="ig-nav__pill" target="_blank" rel="noreferrer" id="ig-nav-cta">
                 <span class="material-icons-round ig-nav__icon" aria-hidden="true">send</span>
                 <span class="ig-nav__pill-label">@Ideal_Gram</span>
             </a>
@@ -56,5 +56,36 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
     <?= $content ?>
 </main>
 <script src="/assets/js/app.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCX_QE_aPLwLUJk8N5VU_onkB2oacIWKO4",
+    authDomain: "qulaygram.firebaseapp.com",
+    projectId: "qulaygram",
+    storageBucket: "qulaygram.firebasestorage.app",
+    messagingSenderId: "830299386933",
+    appId: "1:830299386933:web:01d28f5157c7d7d6246d7c",
+    measurementId: "G-NL0VCZV8BJ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  window.igAnalyticsLogEvent = (name, params = {}) => {
+    try {
+      logEvent(analytics, name, params);
+    } catch (e) {
+      // ignore analytics errors
+    }
+  };
+</script>
 </body>
 </html>
